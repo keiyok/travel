@@ -1,0 +1,31 @@
+<h3>貸家一覧</h3>
+ 
+ <table>
+   <thead>
+     <tr>
+       <th>画像</th>
+       <th>タイトル</th>
+       <th>住所</th>
+       <th>内容</th>
+       <th>料金</th>
+       <th>編集</th>
+       <th>削除</th>
+     </tr>
+   </thead>
+ 
+   <tbody>
+     <% @rooms.each do |room| %>
+       <tr>
+         <td><%= image_tag room.image.variant(resize:'100x100').processed if room.image.attached? %></td>
+         <td><%= room.title %></td>
+         <td><%= room.place %></td>
+         <td><%= room.content %></td>
+         <td>¥<%= room.price %>/日</td>
+         <td><%= link_to "編集", [:edit, room] %></td>
+         <td><%= link_to "削除", room, method: :delete, data: { confirm: "本当に削除しますか？" } %></td>
+       </tr>
+     <% end %>
+   </tbody>
+ </table>
+ 
+ <p><%= link_to "貸家新規登録", :new_room %></p>

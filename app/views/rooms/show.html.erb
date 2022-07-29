@@ -1,0 +1,39 @@
+<div class="sent_room">
+  <div class="sent_room_top">
+    <h3>貸家詳細</h3>
+ 
+    <%= form_with model: @room do |f| %>
+    <%= hidden_field_tag :id,@room.id %>
+      <table>
+        <tr>
+          <th>画像</th>
+          <td><%= image_tag @room.image.variant(resize:'500x500').processed if @room.image.attached?  %></td>
+        </tr>
+
+        <tr>
+          <th>タイトル</th>
+          <td><%= @room.title %></td>
+        </tr>
+
+        <tr>
+          <th>住所</th>
+          <td><%= @room.place %></td>
+        </tr>
+
+        <tr>
+          <th>内容</th>
+          <td><%= @room.content %></td>
+        </tr>
+
+        <tr>
+          <th>料金</th>
+          <td>¥<%= @room.price %></td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <!-- 予約フォーム -->
+  <div class="reserve_form">
+    <%= render 'reservations/form' %> 
+  </div> 
+</div>

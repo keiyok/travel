@@ -1,0 +1,26 @@
+<div class="reserve_all">
+  <h3>予約一覧</h3>
+  <div class="">
+    <table>
+   <thead>
+     <tr>
+       <th>開始日</th>
+       <th>終了日</th>
+       <th>人数</th>
+       <th>削除</th>
+     </tr>
+   </thead>
+ 
+   <tbody>
+     <% @reservations.each do |reservation| %>
+       <tr>
+         <td><%= reservation.start_date.to_s(:datetime_jp) %></td>
+         <td><%= reservation.end_date.to_s(:datetime_jp) %></td>
+         <td><%= reservation.people %>人</td>
+         <td><%= link_to "削除", reservation, method: :delete, data: { confirm: "本当に削除しますか？" } %></td>
+       </tr>
+     <% end %>
+   </tbody>
+ </table>
+  </div>
+</div>

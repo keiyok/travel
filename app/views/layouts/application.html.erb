@@ -11,6 +11,28 @@
   </head>
 
   <body>
+    <header>
+      <div class="header_top">
+        <a href="/tops/top">
+          <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png" alt="サイトのロゴ">
+        </a>
+        <div class="header_button">
+          <% if user_signed_in? %>
+            <%= button_to '予約一覧', '/reservations', method: :get %>
+            <%= button_to '貸家一覧', '/rooms', method: :get %>
+            <%= button_to 'ログアウト', destroy_user_session_path,class: 'dropdown-item',method: :delete%>
+          <% else %>
+            <%= button_to 'ログイン', '/users/sign_in', method: :get %>
+            <%= button_to '登録する', '/users/sign_up', method: :get %>
+          <% end %>
+        </div>
+      </div>
+    </header>
+
     <%= yield %>
+
+    <footer>
+      <p>aaaaaaaaaaa</p>
+    </footer>
   </body>
 </html>
