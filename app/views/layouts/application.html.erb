@@ -18,6 +18,7 @@
         </a>
         <div class="header_button">
           <% if user_signed_in? %>
+            <%= button_to 'プロフィール', '/users/show', method: :get %>
             <%= button_to '予約一覧', '/reservations', method: :get %>
             <%= button_to '貸家一覧', '/rooms', method: :get %>
             <%= button_to 'ログアウト', destroy_user_session_path,class: 'dropdown-item',method: :delete%>
@@ -32,7 +33,7 @@
     <%= yield %>
 
     <footer>
-      <p>aaaaaaaaaaa</p>
+      <p>© 2020 POTEPAN.INC.</p>
     </footer>
   </body>
 </html>
