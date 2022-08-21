@@ -1,0 +1,23 @@
+<h1>プロフィール</h1>
+
+<p>プロフィール画像</p>
+<% if @user.avater? %>
+  <%= image_tag @user.avater.url, size: '150x150' %>
+<% else %>
+  
+<% end %>
+
+<p>ユーザー名<br>
+<%= @user.name %></p>
+
+<p>メールアドレス<br>
+<%= @user.email %></p>
+
+<p>自己紹介<br>
+<%= @user.introduction %></p>
+
+<p>パスワード<br>
+***********</p>
+
+
+<%= button_to 'プロフィールを変更する', '/users/edit', method: :get %>

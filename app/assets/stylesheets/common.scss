@@ -1,0 +1,26 @@
+header,footer {
+    background-color: black;
+    color: #fff;
+}
+
+.header_top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header_button {
+    display: flex;
+}
+
+ul,li {
+    list-style: none;
+}
+
+.search_room {
+    color: black;
+    text-decoration: none;
+}
+
+.searcher,.sent_room {
+    display: flex;
+}

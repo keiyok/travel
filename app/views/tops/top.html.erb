@@ -1,0 +1,25 @@
+<div class="top_page">
+  <% if user_signed_in? %>
+    <p>ようこそ<%= current_user.name %>さん！！</p>
+  <% else %>
+    <p>貸家の登録・予約をするにはログインする必要があります。</p>
+  <% end %>
+  <h1>ポテパンルーム</h1>
+  <div class="top_page_up">
+    <p>あなたに合った貸家を探そう！！</p>
+    <%= form_with(url: search_rooms_path, local: true, method: :get, class: "rootpageSearchForm") do |form| %>
+      <%= form.text_field :keyword, placeholder: "エリアを入力", id: 'Search_Form', class: "rootpageSearchForm__content" %>
+      <%= form.submit "検索", class: "rootpageSearchForm__bottum" %>
+    <% end %>
+
+    <%= form_with(url: search_rooms_path, local: true, method: :get, class: "rootpageSearchForm") do |form| %>
+      <%= form.text_field :freeword, placeholder: "フリーワードを入力", id: 'Search_Form', class: "rootpageSearchForm__content" %>
+      <%= form.submit "検索", class: "rootpageSearchForm__bottum" %>
+    <% end %>
+
+  </div>
+
+  <div class="top_page_down">
+    <p>上記フォームでエリア・フリーワード検索しよう!！</p>
+  </div>
+</div>

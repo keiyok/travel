@@ -1,0 +1,16 @@
+<div class="">
+  <h3>検索結果:<%= @rooms.count %>件</h3>
+  <div class="searcher">
+    <% @rooms.each do |room| %>
+    <div class="">
+      <%= image_tag room.image.variant(resize:'100x100').processed if room.image.attached? %><br>
+      <%= room.title %><br>
+      <%= room.place %><br>
+      <span>¥</span><%= room.price %>/日<br>
+      <%= link_to "予約する", room %>
+    </div>
+    <% end %>
+  </div>
+
+<%= link_to "ホームページに戻る", :tops_top %>
+</div>
